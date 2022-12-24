@@ -8,21 +8,24 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-LingTiGameAcc
 PKG_VERSION:=20200726
-PKG_RELEASE:=1
-PKG_MAINTAINER:=eSir Playground <https://github.com/esirplayground/luci-app-LingTiGameAcc>
+PKG_RELEASE:=2
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
-	CATEGORY:=eSir Playground
-	SUBMENU:=2. GameAcc
+	SECTION:=luci
+	CATEGORY:=LuCI
+	SUBMENU:=3. Applications
 	TITLE:=LuCI support for LingTiGameAcc
+	PKG_MAINTAINER:=eSir Playground <https://github.com/esirplayground/luci-app-LingTiGameAcc>
 	PKGARCH:=all
 	DEPENDS:=+LingTiGameAcc
 endef
 
 define Package/$(PKG_NAME)/description
-LuCI Support of Simple Switch to turn LingTiGameAcc ON/OFF
+        LuCI Support of Simple Switch to turn LingTiGameAcc ON/OFF
 endef
 
 define Build/Prepare
